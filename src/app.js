@@ -1,14 +1,16 @@
-import express, { request, response } from "express";
+import express, { Router, request, response } from "express";
 import cors from "cors"
 import dotenv from "dotenv"
 import joi from "joi"
 import { MongoClient, ObjectId } from "mongodb";
+import router from "./routes/index.routes;js"
 
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
+app.use(Router)
 dotenv.config()
 
 const mongoClient = new MongoClient(process.env.DATABASE_URL)
@@ -21,7 +23,7 @@ try{
 
 }
 
-const db = mongoClient.db()
+export const db = mongoClient.db()
 
 app.get('/cadastro', async (request, response) => {
     try{
