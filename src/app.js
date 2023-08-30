@@ -1,7 +1,6 @@
 import express, { Router, request, response } from "express";
 import cors from "cors"
 import dotenv from "dotenv"
-import joi from "joi"
 import { MongoClient, ObjectId } from "mongodb";
 import router from "./routes/index.routes.js"
 

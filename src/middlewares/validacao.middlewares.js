@@ -9,7 +9,7 @@ export function validateSchema(schema){
             const errors = validacao.error.details.map(detail =>  detail.message)
             console.log(req.body)
             return res.status(422).send(errors)
-        }  res.sendStatus(201)
+        } 
         next()
     }
 }
