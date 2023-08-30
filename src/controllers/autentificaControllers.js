@@ -1,9 +1,18 @@
 import { db } from "../app.js"
 import bcrypt from "bcrypt"
+import { userSchema } from "../schemas/autentificaSchema.js"
 
 export async function sing_Up(req, res){
 
     const { nome, email, senha} = req.body 
+
+    const validation = userSchema.validate(req.body, { abortEarly: false})
+
+    if(validation.error){
+        const errors = validation.error.details.map(detail =>  detail.message)
+        console.log(req.body)
+        return res.status(422).send(errors)
+    }  res.sendStatus(201)
 
     try{
 
