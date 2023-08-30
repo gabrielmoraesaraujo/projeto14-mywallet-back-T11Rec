@@ -24,14 +24,4 @@ try{
 
 export const db = mongoClient.db()
 
-app.get('/cadastro', async (request, response) => {
-    try{
-        console.log('Ta rodando')
-        return response.status(200).send('Foi')
-    }catch(err){
-        return response.status(500).send(err.message)
-    }
-})
-
-
 app.listen(5000, () => console.log('App rodando na porta 5000'))

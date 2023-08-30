@@ -1,5 +1,4 @@
-import { db } from "../app"
-
+import { db } from "../app.js"
 export async function validaSessao (req, res, next){
     const { authorization } = req.headers
     const token = authorization?.replace("Bearer ", "") 
@@ -8,8 +7,8 @@ export async function validaSessao (req, res, next){
 
     try{
 
-        const sessao = await db.collection("sessao").findOne({  token})
-        if(!sessao) return res.status(404). send("Token não válido")
+        const sessao = await db.collection("sessao").findOne({ token})
+        if(!sessao) return res.status(404).send("Token não válido")
 
         res.locals.token = token
         res.locals.userId = sessions.userId
