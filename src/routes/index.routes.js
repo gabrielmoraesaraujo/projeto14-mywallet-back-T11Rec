@@ -1,6 +1,6 @@
 import { Router } from "express"
-import { autentificaRouter } from "./autentifica.routes.js"
-import transacaoRouter, { transacaoSchema } from "./transacao.routes.js"
+import autentificaRouter from "./autentifica.routes.js"
+import transacaoRouter from "./transacao.routes.js"
 
 
 const router = Router ()

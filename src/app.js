@@ -3,14 +3,14 @@ import cors from "cors"
 import dotenv from "dotenv"
 import joi from "joi"
 import { MongoClient, ObjectId } from "mongodb";
-import router from "./routes/index.routes;js"
+import router from "./routes/index.routes.js"
 
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use(Router)
+app.use(router)
 dotenv.config()
 
 const mongoClient = new MongoClient(process.env.DATABASE_URL)
