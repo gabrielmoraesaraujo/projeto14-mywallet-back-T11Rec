@@ -1,10 +1,13 @@
 import { Router } from "express";
-import { sing_In, sing_Out, sing_Up } from "../controllers/autentificaControllers.js";
+import { sign_In, sign_Out, sign_Up } from "../controllers/autentificaControllers.js";
+import { validateSchema } from "../middlewares/validacao.middlewares.js";
+import { loginSchema, userSchema } from "../schemas/autentificaSchema.js";
+
 
 const autentificaRouter = Router()
 
-autentificaRouter.post("/sing-up", sing_Up)
-autentificaRouter.post("/sing-in", sing_In)
-autentificaRouter.post("/logout", sing_Out)
+autentificaRouter.post("/sign-up", validateSchema(userSchema), sign_Up)
+autentificaRouter.post("/sign-in",validateSchema(loginSchema), sign_In)
+autentificaRouter.post("/logout", sign_Out)
 
 export default autentificaRouter
